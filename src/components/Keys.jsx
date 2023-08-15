@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; // Import the provided CSS styles
+import '../App.css';
 
 const Key = ({ label, onClick }) => (
     <div className='button'>

@@ -9,7 +9,11 @@ const App = () => {
     const onClick = button => {
         if (button === "=") {
             calculate();
-        } else if (button === "C") {
+        }
+        else if(button === '%'){
+            calculatePercent();
+        }
+         else if (button === "C") {
             reset();
         } else if (button === "CE") {
             backspace();
@@ -17,29 +21,35 @@ const App = () => {
             setResult(prevResult => prevResult + button);
         }
     };
+const calculatePercent = () => {
+let checkResult = result / 100;
+setResult(checkResult)
+}
 
     const calculate = () => {
         let checkResult = '';
-        if (result.includes('--')) {
-            checkResult = result.replace('--', '+');
-        } else {
+        
             checkResult = result;
-        }
+        
 
         try {
             setResult((eval(checkResult) || "") + "");
         } catch (e) {
             setResult("error");
+            setTimeout(() =>{
+                setResult('')
+            },1500)
+            
         }
     };
-
     const reset = () => {
         setResult("");
     };
 
     const backspace = () => {
-        setResult(prevResult => prevResult.slice(0, -1));
+        setResult(result => result.slice(0, -1));
     };
+  
 
     return (
       <div id="wrapper">
@@ -53,18 +63,16 @@ const App = () => {
                       <Key label="1" onClick={onClick} />
                       <Key label="4" onClick={onClick} />
                       <Key label="7" onClick={onClick} />
-                      
                       <Key label="AC" onClick={backspace} />
                       
                     
                   </div>
                   <div className="calculator function-keys">
-                      {/* Add Key components for function keys */}
                       <Key label="C" onClick={reset} />
                       <Key label="8" onClick={onClick} />
                       <Key label="5" onClick={onClick} />
                       <Key label="2" onClick={onClick} />
-                      <Key desabled/>
+                      <Key label='000' onClick={onClick}/>
                    
         
                       

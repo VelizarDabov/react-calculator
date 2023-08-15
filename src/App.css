@@ -1,12 +1,5 @@
-/* 
-html { 
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-} */
-
 body {
+  background-color: rgb(36, 35, 35);
   margin: 0;
   font: 100 14px 'Roboto';
 }
@@ -56,11 +49,11 @@ button {
 }
 
 .calculator-display {
-  color: rgb(245, 243, 243);
-  background: #1c191c;
+  color: rgb(51, 50, 50);
+  background: rgba(252,156,23);
   line-height: 130px;
-  font-size: 6em;
-  
+  font-size: 3em;
+  border-style:double;
   flex: 1;
 }
 
